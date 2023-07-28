@@ -14,4 +14,6 @@ public interface DogsRepository {
 
     // Additional admin functionality
     void    deleteAll();
+
+    List<Dog> findAll();
 }
