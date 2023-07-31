@@ -1,10 +1,11 @@
 
-INSERT INTO OWNERS (NAME) VALUES ('ASH'), ('MONIKA'), ('AKSHAT'), ('LINCOLN');
+INSERT INTO DOGS (NAME, AGE) VALUES
+('Cricket', 10),
+('Rocky', 2),
+('Coco', 3),
+('Romeo', 5);
 
-INSERT INTO DOGS (NAME, AGE, OWNER_ID) VALUES
-('Cricket', 10, 1),
-('Rocky', 2, 2),
-('Coco', 3, 3),
-('Romeo', 5, 4);
-
+INSERT INTO dogs (name, age) VALUES ('Einstein', 3);
+INSERT INTO dogs (name, age) VALUES ('Kaya', 5);
+INSERT INTO dogs (name, age) VALUES ('Lassie', 7);
 

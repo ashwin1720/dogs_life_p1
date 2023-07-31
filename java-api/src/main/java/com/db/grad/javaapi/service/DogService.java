@@ -26,7 +26,7 @@ public class DogService implements IDogsService
     }
 
     @Override
-    public long addDog(Dog theDog)
+    public Dog addDog(Dog theDog)
     {
         return itsDogsRepo.save( theDog );
     }
