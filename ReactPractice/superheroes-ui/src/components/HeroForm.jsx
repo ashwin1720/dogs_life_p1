@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import { saveHero } from '../services/hero-service';
 
 // import { Form } from 'react-router-dom'
 import { Form, Row, Button } from 'react-bootstrap'
@@ -29,9 +30,19 @@ const handleSubmit =(event)=>{
     let hero = {};
   hero.alias = alias;
   hero.name = name;
-  hero.ability = ability;
+  hero.superpower = ability;
   hero.teamID = teamID;
-  console.log(hero);    
+  console.log(hero);
+  saveHero(hero)
+   .then(res => {
+      setAbility('');
+      setAlias('');
+      setName('');
+      setTeamID(0)
+      })
+    .catch(err=>{
+       console.log(err);
+      })   
   }
 
   return (

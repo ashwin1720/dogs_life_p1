@@ -1,8 +1,8 @@
 
-import {React, useState, props} from 'react'
+import {React, useState, props,useEffect} from 'react'
 import HeroDetail from './HeroDetail'
 import Row from 'react-bootstrap/Row'
-
+import { getAllHeroes } from '../services/hero-service';
 
 
 const AllHeroes = () => {
@@ -12,8 +12,21 @@ const AllHeroes = () => {
         console.log(name)
         setTotal(total+1);
     }
-  
-  const heroes = 
+    const [heroes,setHeroes] = useState([]);
+    useEffect(()=>{
+        getHeroesFromAPI();}, 
+        []
+);
+    const getHeroesFromAPI = ()=>{getAllHeroes()
+        .then(res => {
+            setHeroes(res.data);
+        })
+        .catch(err => {
+            setHeroes([]);
+            console.log(err);
+        })}
+
+  /*const heroes = 
     [
         {"id":1,"name":"Bruce Wayne","alias":"Batman","superpower":"Martial Arts","teamID":1},
         {"id":2,"name":"Clark Kent","alias":"Superman","superpower":"Flight","teamID":1},
@@ -25,7 +38,7 @@ const AllHeroes = () => {
         {"id":8,"name":"Cecil Adams","alias":"Count Vertigo","superpower":"Drug-dealing","teamID":4},
         {"id":9,"name":"Damian Wayne","alias":"Robin","superpower":"Swordsmanship","teamID":5},
         {"id":10,"name":"Dick Grayson","alias":"Nightwing","superpower":"Acrobatics","teamID":5}
-        ]
+        ]*/
         return (
             <>
             
